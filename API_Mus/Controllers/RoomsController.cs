@@ -20,10 +20,16 @@ namespace API_Mus.Controllers
             _roomRepository = roomRepository;
         }
 
-        [HttpGet]
+        [HttpGet("/GetRooms")]      
         public async Task<IEnumerable<Room>> GetRooms()
         {
-            return await _roomRepository.Get();
+            return await _roomRepository.GetRooms();
+        }
+
+        [HttpGet("/GetPlasments")]
+        public async Task<IEnumerable<Placement>> GetPlasments()
+        {
+            return await _roomRepository.GetPlacment();
         }
 
         [HttpGet("{id}")]

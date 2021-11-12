@@ -8,8 +8,9 @@ namespace API_Mus.Repositories
 {
     public interface IRoomRepository
     {
-        Task<IEnumerable<Room>> Get();
+        Task<IEnumerable<Room>> GetRooms();
         Task<Room> Get(int ID);
+        Task<IEnumerable<Placement>> GetPlacment();
         Task<Room> Create(Room room);
         Task Update(Room room);
         Task Delete(int id);

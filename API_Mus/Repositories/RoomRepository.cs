@@ -29,9 +29,14 @@ namespace API_Mus.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Room>> Get()
+        public async Task<IEnumerable<Room>> GetRooms()
         {
             return await _context.Rooms.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Placement>> GetPlacment()
+        {
+            return await _context.Placements.ToListAsync();
         }
 
         public async Task<Room> Get(int ID)
