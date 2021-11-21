@@ -11,6 +11,7 @@ namespace API_Mus.Models
     public class Model
     {
         public int UUID { get; set; }
+        public List<Placement> Placement { get; set; }
 
         public string Name { get; set; }
 

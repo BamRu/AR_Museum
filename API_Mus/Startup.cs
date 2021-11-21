@@ -53,6 +53,7 @@ namespace API_Mus
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseDeveloperExceptionPage();
 
             app.UseEndpoints(endpoints =>
             {
