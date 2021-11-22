@@ -12,7 +12,7 @@ namespace API_Mus.Models
     public class Placement
     {
  
-        public int UUID { get; set; }
+        //public int UUID { get; set; }
 
         public int UUID_Room { get; set; }
         public Room Room { get; set; }
