@@ -26,16 +26,16 @@ namespace API_Mus.Models
                .WithMany(m => m.Placement);
 
             modelBuilder.Entity<Placement>()
-                .HasOne(p => p.Position)
-                .WithOne();
+                .HasOne(p => p.Position);
+                //.WithOne();
 
             modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Room)
                 .WithMany(r => r.Placement);
 
             modelBuilder.Entity<Placement>()
-                .HasOne(p => p.Rotation)
-                .WithOne();
+                .HasOne(p => p.Rotation);
+                //.WithOne();
 
             modelBuilder.Entity<Model>()
                 .HasKey(r => r.UUID);

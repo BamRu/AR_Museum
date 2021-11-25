@@ -14,16 +14,16 @@ namespace API_Mus.Models
  
         public int UUID { get; set; }
 
-        public int UUID_Room { get; set; }
+        //public int UUID_Room { get; set; }
         public Room Room { get; set; }
 
-        public int UUID_Model { get; set; }
+        //public int UUID_Model { get; set; }
         public Model Model { get; set; }
 
-        public int UUID_Position { get; set; }
+        //public int UUID_Position { get; set; }
         public Position Position { get; set; }
 
-        public int UUID_Rotation { get; set; }
+        //public int UUID_Rotation { get; set; }
         public Rotation Rotation { get; set; }
 
     }
