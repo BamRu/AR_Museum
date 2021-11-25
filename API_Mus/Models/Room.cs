@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,10 +11,27 @@ namespace API_Mus.Models
 
     public class Room
     {
+        private IList<Placement> _placement;
+        public Room()
+        {
+
+        }
+        private Room(ILazyLoader lazyLoader)
+        {
+            LazyLoader = lazyLoader;
+        }
+
+        private ILazyLoader LazyLoader { get; set; }
+
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Placement> Placement { get; set;}
+        //[ResponseBody]
+        public IList<Placement> Placement 
+        { 
+            get=> LazyLoader.Load(this,ref _placement); 
+            set=> _placement = value;
+        }
     }
 
 }

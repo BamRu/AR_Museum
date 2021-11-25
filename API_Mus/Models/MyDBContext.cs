@@ -8,9 +8,13 @@ namespace API_Mus.Models
 {
     public class MyDBContext : DbContext
     {
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseLazyLoadingProxies();
         
+
         public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,17 +25,18 @@ namespace API_Mus.Models
             modelBuilder.Entity<Placement>()
                 .HasKey(r => r.UUID);
 
-            modelBuilder.Entity<Placement>()
-               .HasOne(p => p.Model)
-               .WithMany(m => m.Placement);
+            //modelBuilder.Entity<Placement>()
+               //.HasOne(p => p.Model);
+               //.WithMany(m => m.Placement);
 
             modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Position);
-                //.WithOne();
+            //.WithOne();
 
             modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Room)
-                .WithMany(r => r.Placement);
+                .WithMany(r => r.Placement)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Rotation);

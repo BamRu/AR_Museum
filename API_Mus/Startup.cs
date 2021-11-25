@@ -31,7 +31,13 @@ namespace API_Mus
         {
             services.AddScoped<IRoomRepository, RoomRepository>();
             services.AddDbContext<MyDBContext>(o => o.UseSqlite("Data source=DB.db"));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            // services.AddControllersWithViews()
+            //     .AddNewtonsoftJson(options =>
+            //        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            //);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Mus", Version = "v1" });
