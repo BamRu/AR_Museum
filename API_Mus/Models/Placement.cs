@@ -34,7 +34,7 @@ namespace API_Mus.Models
         }
 
 
-        [JsonIgnore]
+        //[JsonIgnore]
         //public int UUID_Model { get; set; }
         //public Model Model { get; set; }
 

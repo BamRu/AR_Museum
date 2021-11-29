@@ -46,8 +46,12 @@ namespace API_Mus.Repositories
 
         public async Task Update(Room room)
         {
-            _context.Entry(room).State = EntityState.Modified;
+            _context.Rooms.Update(room);
+
+           
+
             await _context.SaveChangesAsync();
         }
+
     }
 }
