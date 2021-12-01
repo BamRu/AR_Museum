@@ -12,7 +12,6 @@ namespace API_Mus.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
     public class RoomsController : ControllerBase
     {
         private readonly IRoomRepository _roomRepository;
@@ -28,21 +27,21 @@ namespace API_Mus.Controllers
             return await _roomRepository.GetRooms();
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("/GetPlasments")]
         public async Task<IEnumerable<Placement>> GetPlasments()
         {
             return await _roomRepository.GetPlacment();
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRooms(int id)
         {
             return await _roomRepository.Get(id);
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public async Task<ActionResult<Room>> PostBooks([FromBody] Room room)
         {
@@ -50,7 +49,7 @@ namespace API_Mus.Controllers
             return CreatedAtAction(nameof(GetRooms), new { id = newroom.Id }, newroom);
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut]
         public async Task<ActionResult> PutBooks(int id, [FromBody] Room room)
         {
@@ -64,7 +63,7 @@ namespace API_Mus.Controllers
             return NoContent();
         }
 
-        [Authorize]
+        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,8 +13,8 @@ namespace AuthenticationandAuthorization.Controllers
 {
     public class AuthenticateController : ControllerBase
     {
-        
-        private IConfiguration _config;
+
+        private readonly IConfiguration _config;
 
         public AuthenticateController(IConfiguration config)
         {
@@ -27,48 +26,37 @@ namespace AuthenticationandAuthorization.Controllers
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              null,
-              expires: DateTime.Now.AddMinutes(120),
-              signingCredentials: credentials);
+            var token = new JwtSecurityToken(signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private async Task<LoginModel> AuthenticateUser(LoginModel login)
+        private LoginModel AuthenticateUser(LoginModel login)
         {
             LoginModel user = null;
 
    
-            if (login.UserName == "admin")
+            if (login.Password == "admin")
             {
-                user = new LoginModel { UserName = "admin", Password = "admin" };
+                user = new LoginModel { Password = "admin" };
             }
             return user;
         }
 
         [AllowAnonymous]
         [HttpPost(nameof(Login))]
-        public async Task<IActionResult> Login([FromBody] LoginModel data)
+        public IActionResult Login([FromBody] LoginModel data)
         {
             IActionResult response = Unauthorized();
-            var user = await AuthenticateUser(data);
+            var user = AuthenticateUser(data);
             if (user != null)
             {
                 var tokenString = GenerateJSONWebToken(user);
-                response = Ok(new { Token = tokenString, Message = "Success" });
+                response = Ok(new { Token = tokenString });
             }
             return response;
         }
 
-        [HttpGet(nameof(Get))]
-        public async Task<IEnumerable<string>> Get()
-        {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-
-            return new string[] { accessToken };
-        }
 
 
     }
@@ -76,8 +64,6 @@ namespace AuthenticationandAuthorization.Controllers
 
     public class LoginModel
     {
-        [Required]
-        public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
     }
