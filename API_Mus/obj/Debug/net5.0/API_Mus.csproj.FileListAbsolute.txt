@@ -179,3 +179,10 @@ D:\BamRu\AR_Museum\API_Mus\obj\Debug\net5.0\API_Mus.dll
 D:\BamRu\AR_Museum\API_Mus\obj\Debug\net5.0\ref\API_Mus.dll
 D:\BamRu\AR_Museum\API_Mus\obj\Debug\net5.0\API_Mus.pdb
 D:\BamRu\AR_Museum\API_Mus\obj\Debug\net5.0\API_Mus.genruntimeconfig.cache
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+E:\AR_Museum\API_Mus\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
