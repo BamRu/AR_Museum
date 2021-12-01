@@ -36,8 +36,10 @@ namespace API_Mus
             services.AddDbContext<MyDBContext>(o => o.UseSqlite("Data source=DB.db"));
             services.AddControllers().AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            
-           services.AddSwaggerGen(c =>
+
+            services.AddMvc();
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Mus", Version = "v1" });
 
@@ -79,12 +81,10 @@ namespace API_Mus
                options.RequireHttpsMetadata = false;
                options.TokenValidationParameters = new TokenValidationParameters()
                {
-                   ValidateIssuer = true,
-                   ValidateAudience = true,
+                   ValidateIssuer = false,
+                   ValidateAudience = false,
                    ValidateLifetime = false,
                    ValidateIssuerSigningKey = true,
-                   ValidIssuer = Configuration["Jwt:Issuer"],
-                   ValidAudience = Configuration["Jwt:Issuer"],
                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                };
            });
