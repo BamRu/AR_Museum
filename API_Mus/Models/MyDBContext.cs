@@ -22,7 +22,9 @@ namespace API_Mus.Models
                 .HasKey(r => r.UUID);
 
             modelBuilder.Entity<Placement>()
-                .HasOne(p => p.Position);
+                .HasOne(p => p.Position)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Room)
@@ -30,7 +32,9 @@ namespace API_Mus.Models
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Placement>()
-                .HasOne(p => p.Rotation);
+                .HasOne(p => p.Rotation)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Model>()
                 .HasKey(r => r.UUID);
