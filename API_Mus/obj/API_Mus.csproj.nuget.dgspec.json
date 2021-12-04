@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BamRu\\AR_Museum\\API_Mus\\API_Mus.csproj": {}
+    "E:\\AR_Museum\\API_Mus\\API_Mus.csproj": {}
   },
   "projects": {
-    "D:\\BamRu\\AR_Museum\\API_Mus\\API_Mus.csproj": {
+    "E:\\AR_Museum\\API_Mus\\API_Mus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BamRu\\AR_Museum\\API_Mus\\API_Mus.csproj",
+        "projectUniqueName": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
         "projectName": "API_Mus",
-        "projectPath": "D:\\BamRu\\AR_Museum\\API_Mus\\API_Mus.csproj",
-        "packagesPath": "C:\\Users\\VR5\\.nuget\\packages\\",
-        "outputPath": "D:\\BamRu\\AR_Museum\\API_Mus\\obj\\",
+        "projectPath": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
+        "packagesPath": "C:\\Users\\timon\\.nuget\\packages\\",
+        "outputPath": "E:\\AR_Museum\\API_Mus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\VR5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\timon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
