@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\AR_Museum\\API_Mus\\API_Mus.csproj": {}
+    "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj": {}
   },
   "projects": {
-    "E:\\AR_Museum\\API_Mus\\API_Mus.csproj": {
+    "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
+        "projectUniqueName": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj",
         "projectName": "API_Mus",
-        "projectPath": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
-        "packagesPath": "C:\\Users\\timon\\.nuget\\packages\\",
-        "outputPath": "E:\\AR_Museum\\API_Mus\\obj\\",
+        "projectPath": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj",
+        "packagesPath": "C:\\Users\\Andrey Feskovich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\timon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrey Feskovich\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

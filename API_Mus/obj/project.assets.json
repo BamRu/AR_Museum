@@ -1800,19 +1800,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\timon\\.nuget\\packages\\": {}
+    "C:\\Users\\Andrey Feskovich\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
+      "projectUniqueName": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj",
       "projectName": "API_Mus",
-      "projectPath": "E:\\AR_Museum\\API_Mus\\API_Mus.csproj",
-      "packagesPath": "C:\\Users\\timon\\.nuget\\packages\\",
-      "outputPath": "E:\\AR_Museum\\API_Mus\\obj\\",
+      "projectPath": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\API_Mus.csproj",
+      "packagesPath": "C:\\Users\\Andrey Feskovich\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andrey Feskovich\\Documents\\GitHub\\AR_Museum\\API_Mus\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\timon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andrey Feskovich\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1881,7 +1881,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1890,7 +1890,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"modernhttpclient 2.4.2\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'modernhttpclient 2.4.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
       "libraryId": "modernhttpclient",
       "targetGraphs": [
         "net5.0"
