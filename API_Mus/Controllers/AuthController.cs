@@ -43,6 +43,7 @@ namespace AuthenticationandAuthorization.Controllers
             return user;
         }
 
+        //--- LoginToAdmin ---
         [AllowAnonymous]
         [HttpPost(nameof(Login))]
         public IActionResult Login([FromBody] LoginModel data)
@@ -56,9 +57,6 @@ namespace AuthenticationandAuthorization.Controllers
             }
             return response;
         }
-
-
-
     }
 
 

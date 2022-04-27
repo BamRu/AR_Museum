@@ -27,17 +27,16 @@ namespace API_Mus.Models
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Placement>()
-                .HasOne(p => p.Room)
-                .WithMany(r => r.Placement)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Placement>()
                 .HasOne(p => p.Rotation)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Model>()
-                .HasKey(r => r.UUID);
+            modelBuilder.Entity<Placement>()
+                .HasOne(p => p.Room)
+                .WithMany(r => r.Placement)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
      
             modelBuilder.Entity<Rotation>()
                 .HasKey(r => r.UUID);
@@ -46,8 +45,6 @@ namespace API_Mus.Models
                 .HasKey(r => r.UUID);
 
         }
-
-        public DbSet<Model> Models { get; set; }
         public DbSet<Placement> Placements { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Position> Positions { get; set; }

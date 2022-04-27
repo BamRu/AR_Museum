@@ -21,37 +21,33 @@ namespace API_Mus.Controllers
             _roomRepository = roomRepository;
         }
 
+        //--- RequestRooms ---
         [HttpGet("/GetRooms")]      
-        public async Task<IEnumerable<Room>> GetRooms()
+        public async Task<IEnumerable<Room>> GetRoom()
         {
             return await _roomRepository.GetRooms();
         }
 
         [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
-        [HttpGet("/GetPlasments")]
-        public async Task<IEnumerable<Placement>> GetPlasments()
-        {
-            return await _roomRepository.GetPlacment();
-        }
-
-        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Room>> GetRooms(int id)
+        public async Task<ActionResult<Room>> GetRoom(int id)
         {
             return await _roomRepository.Get(id);
         }
 
+        //--- PostNewRoom ---
         [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
-        public async Task<ActionResult<Room>> PostBooks([FromBody] Room room)
+        public async Task<ActionResult<Room>> PostRoom([FromBody] Room room)
         {
             var newroom = await _roomRepository.Create(room);
-            return CreatedAtAction(nameof(GetRooms), new { id = newroom.Id }, newroom);
+            return CreatedAtAction(nameof(GetRoom), new { id = newroom.Id }, newroom);
         }
 
+        //--- PutRoomToServer ---
         [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut]
-        public async Task<ActionResult> PutBooks(int id, [FromBody] Room room)
+        public async Task<ActionResult> PutRoom(int id, [FromBody] Room room)
         {
             if (id != room.Id)
             {
@@ -63,6 +59,7 @@ namespace API_Mus.Controllers
             return NoContent();
         }
 
+        //--- DeleteRequest ---
         [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
