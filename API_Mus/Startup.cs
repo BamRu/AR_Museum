@@ -69,25 +69,25 @@ namespace API_Mus
                 });
             });
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-           .AddJwtBearer(options =>
-           {
-               options.SaveToken = true;
-               options.RequireHttpsMetadata = false;
-               options.TokenValidationParameters = new TokenValidationParameters()
-               {
-                   ValidateIssuer = false,
-                   ValidateAudience = false,
-                   ValidateLifetime = false,
-                   ValidateIssuerSigningKey = true,
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-               };
-           });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidateIssuer = true,
+
+                        ValidAudience = Configuration["Jwt:Audience"],
+                        ValidateAudience = true,
+
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:key"])),
+                        ValidateIssuerSigningKey = true,
+
+                        RequireExpirationTime = false,
+                    };
+                    options.SaveToken = true;
+                    options.RequireHttpsMetadata = false;
+
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -104,6 +104,7 @@ namespace API_Mus
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseDeveloperExceptionPage();
 

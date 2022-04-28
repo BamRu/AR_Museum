@@ -21,38 +21,39 @@ namespace AuthenticationandAuthorization.Controllers
             _config = config;
         }
  
-        private string GenerateJSONWebToken(LoginModel userInfo)
+        private string GenerateJSONWebToken(LoginModel passData)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(signingCredentials: credentials);
+            var token = new JwtSecurityToken(signingCredentials: credentials,
+                issuer: _config["Jwt:Issuer"],
+                audience: _config["Jwt:Audience"],
+                expires: DateTime.MaxValue);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private LoginModel AuthenticateUser(LoginModel login)
+        private bool CheckPassword(LoginModel password)
         {
-            LoginModel user = null;
+            string rightPassword = "tokm_pass";
 
-   
-            if (login.Password == "admin")
-            {
-                user = new LoginModel { Password = "admin" };
-            }
-            return user;
+            if (password.Password == rightPassword)
+                return true;
+			else
+                return false;
         }
 
         //--- LoginToAdmin ---
         [AllowAnonymous]
         [HttpPost(nameof(Login))]
-        public IActionResult Login([FromBody] LoginModel data)
+        public IActionResult Login([FromBody] LoginModel password)
         {
             IActionResult response = Unauthorized();
-            var user = AuthenticateUser(data);
-            if (user != null)
+            
+            if (CheckPassword(password))
             {
-                var tokenString = GenerateJSONWebToken(user);
+                var tokenString = GenerateJSONWebToken(password);
                 response = Ok(new { Token = tokenString });
             }
             return response;
