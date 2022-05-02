@@ -10,7 +10,6 @@ namespace API_Mus.Repositories
     {
         Task<IEnumerable<Room>> GetRooms();
         Task<Room> Get(int ID);
-        Task<IEnumerable<Placement>> GetPlacment();
         Task<Room> Create(Room room);
         Task Update(Room room);
         Task Delete(int id);

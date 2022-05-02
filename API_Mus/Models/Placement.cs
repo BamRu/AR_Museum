@@ -25,6 +25,8 @@ namespace API_Mus.Models
 
         public int UUID { get; set; }
 
+        public int contentID { get; set; }
+
         //public int UUID_Room { get; set; }
         private Room _room;
         public Room Room
