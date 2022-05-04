@@ -11,7 +11,7 @@ namespace API_Mus.Models
 
     public class Room
     {
-        private IList<Placement> _placement;
+        public IList<Placement> _placement;
         public Room()
         {
 
